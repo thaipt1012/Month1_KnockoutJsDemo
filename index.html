@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Demo KnockoutJs</title>
+	<script type='text/javascript' src='knockout-3.2.0.js'></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<h3>Items</h3>
+
+<form data-bind="submit: addItem">
+    Add item:
+    <input data-bind="value: newItemText" placeholder="Product name" style="width: 200px"/>
+    <input data-bind="value: newItemPrice" placeholder="Product price"  style="width: 80px"/>
+    <button type="submit">Add</button>
+</form>
+
+<ul data-bind="foreach: items, visible: items().length > 0">
+    <li>
+        <!--<input type="checkbox" data-bind="checked: isDone" />-->
+        <input data-bind="value: title, disable: isDone" style="width: 200px"/>
+        <input data-bind="value: price, disable: isDone" style="width: 60px"/>$
+        <a href="#" data-bind="click: $parent.removeItem">Delete</a>
+    </li> 
+</ul>
+
+You have <b data-bind="text: incompleteItems().length">&nbsp;</b> item(s)
+<span data-bind="visible: incompleteItems().length == 0"></span>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
